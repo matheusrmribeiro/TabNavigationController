@@ -44,6 +44,11 @@ class TabNavigationController @JvmOverloads constructor(context: Context, attrs:
 	 */
 	var delegate: TabNavigationControllerDelegate? = null
 
+	val currentNavHost: NavHostFragment?
+		get() {
+			return navHostList.getOrNull(currentTabIndex)?.navHost
+		}
+
 	val currentController: NavController?
 	get() {
 		return navHostList.getOrNull(currentTabIndex)?.navHost?.navController
